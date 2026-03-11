@@ -1,0 +1,548 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuito Ocho | Sistemas Inteligentes de Marketing</title>
+    <meta name="description" content="Sistemas estructurados de marketing digital para empresas de servicios profesionales.">
+    
+    <!-- Google Fonts: Space Grotesk for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#06190C',
+                            gray: '#2A2A2A',
+                            neon: '#35FC03',
+                            light: '#E0E0E0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased overflow-x-hidden selection:bg-brand-neon selection:text-brand-dark">
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Background Canvas for Interactive Animations -->
+    <canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-dark/80 border-b border-white/10 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-display font-bold text-2xl tracking-tighter text-white flex items-center gap-2">
+                        <img src="./img/C8_logoH_2.svg" alt="Circuito Ocho Logo Horizontal" width="300" height="150">
+                        <!--<span class="w-3 h-3 bg-brand-neon rounded-full shadow-[0_0_10px_#35FC03] animate-pulse"></span>
+                        CIRCUITO<span class="text-brand-neon">OCHO</span>-->
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#problema" class="hover:text-brand-neon transition-colors duration-300 text-sm uppercase tracking-widest font-display">Problema</a>
+                        <a href="#sistema" class="hover:text-brand-neon transition-colors duration-300 text-sm uppercase tracking-widest font-display">Sistema</a>
+                        <a href="#servicios" class="hover:text-brand-neon transition-colors duration-300 text-sm uppercase tracking-widest font-display">Servicios</a>
+                        <a href="#proceso" class="hover:text-brand-neon transition-colors duration-300 text-sm uppercase tracking-widest font-display">Proceso</a>
+                        <a href="#testimonios" class="hover:text-brand-neon transition-colors duration-300 text-sm uppercase tracking-widest font-display">Testimonios</a>
+                        <a href="#precios" class="hover:text-brand-neon transition-colors duration-300 text-sm uppercase tracking-widest font-display">Precios</a>
+                        <a href="#contacto" class="px-5 py-2 rounded-none border border-brand-neon text-brand-neon hover:bg-brand-neon hover:text-brand-dark transition-all duration-300 font-display font-bold uppercase text-xs tracking-widest shadow-[0_0_10px_rgba(53,252,3,0.2)] hover:shadow-[0_0_20px_#35FC03]">
+                            Iniciar
+                        </a>
+                        <a href="https://www.linkedin.com/company/circuito-ocho/" target="_blank" rel="noopener noreferrer" class=" hover:text-brand-neon transition-colors duration-300 transform hover:scale-110  py-2 rounded-none tracking-widest" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ochocircuito" target="_blank" rel="noopener noreferrer" class=" hover:text-brand-neon transition-colors duration-300 transform hover:scale-110  py-2 rounded-none tracking-widest" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden bg-brand-dark border-b border-white/10" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#problema" class="text-gray-300 hover:text-brand-neon block px-3 py-2 rounded-md text-base font-medium">Problema</a>
+                <a href="#sistema" class="text-gray-300 hover:text-brand-neon block px-3 py-2 rounded-md text-base font-medium">Sistema</a>
+                <a href="#servicios" class="text-gray-300 hover:text-brand-neon block px-3 py-2 rounded-md text-base font-medium">Servicios</a>
+                <a href="#proceso" class="text-gray-300 hover:text-brand-neon block px-3 py-2 rounded-md text-base font-medium">Proceso</a>
+                <a href="#testimonios" class="text-gray-300 hover:text-brand-neon block px-3 py-2 rounded-md text-base font-medium">Testimonios</a>
+                <a href="#precios" class="text-gray-300 hover:text-brand-neon block px-3 py-2 rounded-md text-base font-medium">Precios</a>
+                <a href="#contacto" class="text-brand-neon font-bold block px-3 py-2 rounded-md text-base">Iniciar Sistema</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Section 1 - Parallax) -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-radial from-brand-neon/5 to-transparent opacity-50 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-block mb-4 px-3 py-1 border border-brand-neon/30 rounded-full bg-brand-neon/5 backdrop-blur-sm reveal-element">
+                <span class="text-brand-neon text-xs font-mono uppercase tracking-widest">Estado del Sistema: En Línea</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight reveal-element">
+                Marketing como un <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-white">Organismo Vivo</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 reveal-element">
+                Deja de adivinar. Comienza a evolucionar. Construimos sistemas inteligentes de marketing que ejecutan, miden y mejoran automáticamente.
+            </p>
+            <div class="mt-10 flex justify-center gap-4 reveal-element">
+                <a href="#contacto" class="group relative px-8 py-4 bg-brand-neon text-brand-dark font-display font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="relative z-10 group-hover:text-white transition-colors duration-300">Iniciar Auditoría</span>
+                    <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+                </a>
+                <a href="#sistema" class="px-8 py-4 border border-white/20 text-white font-display font-bold uppercase tracking-widest hover:border-brand-neon hover:text-brand-neon transition-all duration-300">
+                    Explorar Lógica
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- Problem Section (Section 2 - No Parallax) -->
+    <section id="problema" class="py-32 bg-brand-gray relative" >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-element">
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">El Caos de los <span class="text-red-500">Datos Desconectados</span></h2>
+                    <p class="text-gray-400 text-lg mb-6">
+                        La mayoría de las empresas de servicios profesionales operan por intuición. Publicas en redes sociales, envías un correo y esperas lo mejor. No hay ciclo de retroalimentación. No hay sistema.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            <span class="text-gray-300">Actos aleatorios de marketing sin estrategia.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            <span class="text-gray-300">Incapacidad para rastrear ROI entre canales.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            <span class="text-gray-300">Presupuesto desperdiciado en campañas no optimizadas.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative reveal-element">
+                    <div class="absolute -inset-4 bg-brand-neon/20 blur-3xl rounded-full"></div>
+                    <div class="relative bg-brand-dark border border-white/10 p-8 rounded-lg shadow-2xl">
+                        <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-4">
+                            <span class="text-xs font-mono text-red-500">ERROR: ESTRATEGIA_NO_ENCONTRADA</span>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-3 font-mono text-sm text-gray-500">
+                            <p>> Escaneando canales de marketing...</p>
+                            <p>> Facebook Ads: <span class="text-red-500">Desconectado</span></p>
+                            <p>> Email CRM: <span class="text-red-500">Sin Integración</span></p>
+                            <p>> Analíticas: <span class="text-red-500">Datos Aislados</span></p>
+                            <p class="animate-pulse">> Fallo del Sistema Inminente...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Explanation (Section 3 - Parallax) -->
+    <section id="sistema" class="parallax-section py-24 bg-brand-dark relative overflow-hidden">
+        <!-- Decorative Grid -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDAIODAgMEgwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-4">El <span class="text-brand-neon">Protocolo</span> Circuito Ocho</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Reemplazamos el caos con un sistema de circuito cerrado. Cada acción genera datos, y cada dato optimiza la siguiente acción.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group p-8 bg-white/5 border border-white/10 rounded-xl hover:border-brand-neon/50 transition-all duration-300 hover:-translate-y-2 reveal-element">
+                    <div class="w-12 h-12 bg-brand-neon/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-neon/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white mb-3">01. Detección</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Instalamos sensores en toda tu huella digital para capturar comportamiento de usuarios y señales del mercado en tiempo real.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group p-8 bg-white/5 border border-white/10 rounded-xl hover:border-brand-neon/50 transition-all duration-300 hover:-translate-y-2 reveal-element">
+                    <div class="w-12 h-12 bg-brand-neon/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-neon/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white mb-3">02. Procesamiento</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Nuestra inteligencia central analiza los datos para identificar patrones de alto valor y eliminar desperdicios.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group p-8 bg-white/5 border border-white/10 rounded-xl hover:border-brand-neon/50 transition-all duration-300 hover:-translate-y-2 reveal-element">
+                    <div class="w-12 h-12 bg-brand-neon/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-neon/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white mb-3">03. Actuación</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Ejecución automatizada de campañas optimizadas en todos los canales, creando un ciclo de auto-mejora.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Section 4 - No Parallax) -->
+    <section id="servicios" class="py-32 bg-brand-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 reveal-element">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Módulos de Servicio</h2>
+                <div class="h-1 w-20 bg-brand-neon mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service Item -->
+                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                    <h3 class="text-lg font-bold text-white mb-2">Arquitectura Estratégica</h3>
+                    <p class="text-gray-400 text-sm">Diseño de planos para todo tu ecosistema digital.</p>
+                </div>
+                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                    <h3 class="text-lg font-bold text-white mb-2">Red Neural de Contenido</h3>
+                    <p class="text-gray-400 text-sm">Creación de contenido basada en datos que se adapta al engagement.</p>
+                </div>
+                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                    <h3 class="text-lg font-bold text-white mb-2">Automatización de Publicidad</h3>
+                    <p class="text-gray-400 text-sm">Compra algorítmica de anuncios para maximizar ROAS.</p>
+                </div>
+                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                    <h3 class="text-lg font-bold text-white mb-2">Infraestructura SEO</h3>
+                    <p class="text-gray-400 text-sm">SEO técnico para asegurar la descubribilidad del sistema.</p>
+                </div>
+                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                    <h3 class="text-lg font-bold text-white mb-2">Optimización de Conversión</h3>
+                    <p class="text-gray-400 text-sm">Pruebas A/B para maximizar el output del tráfico existente.</p>
+                </div>
+                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                    <h3 class="text-lg font-bold text-white mb-2">Panel de Analíticas</h3>
+                    <p class="text-gray-400 text-sm">Vista en vivo de la salud y rendimiento de tu sistema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials/Quotes Section (Section 5 - Parallax) - NEW SECTION -->
+    <section id="testimonios" class="parallax-section py-24 bg-brand-dark relative overflow-hidden">
+        <!-- Glowing background elements -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-brand-neon/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-neon/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-4">Voces del <span class="text-brand-neon">Sistema</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Lo que dicen los líderes que han transformado sus operaciones de marketing.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="p-8 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300">
+                    <div class="mb-6">
+                        <svg class="w-10 h-10 text-brand-neon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
+                    <p class="text-brand-neon text-lg mb-6 italic">"Circuito Ocho transformó nuestro marketing de caos a precisión. Nuestro ROI aumentó 340% en 6 meses."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-brand-neon/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-brand-neon font-bold text-xl">DR</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold">Dr. Roberto Méndez</p>
+                            <p class="text-gray-500 text-sm">Director, Clínica Dental Elite</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-8 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300">
+                    <div class="mb-6">
+                        <svg class="w-10 h-10 text-brand-neon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
+                    <p class="text-brand-neon text-lg mb-6 italic">"Finalmente tenemos un sistema que trabaja mientras dormimos. Las automatizaciones son impresionantes."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-brand-neon/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-brand-neon font-bold">LV</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold">Lic. Valentina Torres</p>
+                            <p class="text-gray-500 text-sm">Socia, Torres & Asociados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-8 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300">
+                    <div class="mb-6">
+                        <svg class="w-10 h-10 text-brand-neon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
+                    <p class="text-brand-neon text-lg mb-6 italic">"La claridad de sus reportes y la precisión de sus campañas es lo que necesitábamos para escalar."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-brand-neon/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-brand-neon font-bold">CF</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold">Ing. Carlos Fuentes</p>
+                            <p class="text-gray-500 text-sm">CEO, Fuentes Consultoría</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Highlight -->
+            <div class="mt-16 p-12 bg-brand-neon/5 border border-brand-neon/20 rounded-2xl text-center reveal-element">
+                <p class="text-2xl md:text-3xl font-display font-bold text-brand-neon mb-4">"El marketing no es arte, es ingeniería de precisión."</p>
+                <p class="text-gray-400">— Filosofía Circuito Ocho</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (Section 6 - No Parallax) -->
+    <section id="proceso" class="py-32 bg-brand-gray relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-16 text-center reveal-element">Flujo de Ejecución</h2>
+            
+            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/20 before:to-transparent">
+                
+                <!-- Step 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-element">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-brand-neon bg-brand-dark shadow-[0_0_15px_rgba(53,252,3,0.5)] z-10">
+                        <span class="text-brand-neon font-mono text-sm">01</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-brand-dark border border-white/10 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-bold text-white">Escaneo Diagnóstico</h3>
+                        <p class="text-gray-400 text-sm mt-2">Auditoría profunda de activos actuales, fugas y oportunidades.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-element">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-brand-neon bg-brand-dark shadow-[0_0_15px_rgba(53,252,3,0.5)] z-10">
+                        <span class="text-brand-neon font-mono text-sm">02</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-brand-dark border border-white/10 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-bold text-white">Diseño del Circuito</h3>
+                        <p class="text-gray-400 text-sm mt-2">Mapeo del customer journey y selección del stack tecnológico.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-element">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-brand-neon bg-brand-dark shadow-[0_0_15px_rgba(53,252,3,0.5)] z-10">
+                        <span class="text-brand-neon font-mono text-sm">03</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-brand-dark border border-white/10 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-bold text-white">Despliegue</h3>
+                        <p class="text-gray-400 text-sm mt-2">Lanzamiento de campañas y secuencias de automatización.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-element">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-brand-neon bg-brand-dark shadow-[0_0_15px_rgba(53,252,3,0.5)] z-10">
+                        <span class="text-brand-neon font-mono text-sm">04</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-brand-dark border border-white/10 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-bold text-white">Ciclo de Optimización</h3>
+                        <p class="text-gray-400 text-sm mt-2">Revisiones mensuales y ajustes algorítmicos.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section (Section 7 - Parallax) -->
+    <section id="precios" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-16 text-center reveal-element">Capacidad del Sistema</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tier 1 -->
+                <div class="p-8 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all reveal-element">
+                    <h3 class="text-xl font-bold text-white">Nodo Inicial</h3>
+                    <div class="my-4">
+                        <span class="text-4xl font-display font-bold text-white">$1,500</span>
+                        <span class="text-gray-500">/mes</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Para empresas emergentes que necesitan una base sólida.</p>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Redes Sociales (2 canales)</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Auditoría SEO Básica</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Reporte Mensual</li>
+                    </ul>
+                    <a href="#contacto" class="block w-full py-3 text-center border border-white/20 text-white hover:border-brand-neon hover:text-brand-neon transition-colors uppercase text-xs font-bold tracking-widest">Seleccionar</a>
+                </div>
+
+                <!-- Tier 2 (Featured) -->
+                <div class="p-8 bg-brand-gray border border-brand-neon rounded-xl relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(53,252,3,0.1)] reveal-element">
+                    <div class="absolute top-0 right-0 bg-brand-neon text-brand-dark text-xs font-bold px-3 py-1 uppercase">Recomendado</div>
+                    <h3 class="text-xl font-bold text-white">Procesador Central</h3>
+                    <div class="my-4">
+                        <span class="text-4xl font-display font-bold text-white">$3,000</span>
+                        <span class="text-gray-500">/mes</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Para marcas en crecimiento listas para escalar.</p>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Estrategia de Contenido Completa</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Gestión de Publicidad Pagada</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Analíticas Avanzadas</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Sprints Quincenales</li>
+                    </ul>
+                    <a href="#contacto" class="block w-full py-3 text-center bg-brand-neon text-brand-dark hover:bg-white transition-colors uppercase text-xs font-bold tracking-widest">Seleccionar</a>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="p-8 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all reveal-element">
+                    <h3 class="text-xl font-bold text-white">Red Empresarial</h3>
+                    <div class="my-4">
+                        <span class="text-4xl font-display font-bold text-white">Personalizado</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Para organizaciones establecidas.</p>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Equipo Dedicado</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Integración CRM Personalizada</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Automatización Multi-Canal</li>
+                        <li class="flex items-center"><span class="text-brand-neon mr-2">✓</span> Monitoreo 24/7</li>
+                    </ul>
+                    <a href="#contacto" class="block w-full py-3 text-center border border-white/20 text-white hover:border-brand-neon hover:text-brand-neon transition-colors uppercase text-xs font-bold tracking-widest">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA (Section 8 - No Parallax) -->
+    <section id="contacto" class="py-24 bg-brand-gray relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-neon/10 to-transparent"></div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal-element">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">¿Listo para Actualizar?</h2>
+            <p class="text-gray-400 text-lg mb-10">Deja de operar en la oscuridad. Instala un sistema que trabaja mientras duermes.</p>
+            
+            <form class="space-y-4 text-left bg-brand-dark p-8 rounded-xl border border-white/10 shadow-2xl">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-mono text-brand-neon mb-2">IDENTIDAD</label>
+                        <input type="text" class="w-full bg-white/5 border border-white/10 rounded p-3 text-white focus:outline-none focus:border-brand-neon transition-colors" placeholder="Nombre">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-brand-neon mb-2">FRECUENCIA (EMAIL)</label>
+                        <input type="email" class="w-full bg-white/5 border border-white/10 rounded p-3 text-white focus:outline-none focus:border-brand-neon transition-colors" placeholder="email@empresa.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-brand-neon mb-2">REQUERIMIENTOS DEL SISTEMA</label>
+                    <textarea class="w-full bg-white/5 border border-white/10 rounded p-3 text-white focus:outline-none focus:border-brand-neon transition-colors h-32" placeholder="Cuéntanos sobre tus desafíos actuales..."></textarea>
+                </div>
+                <button type="button" class="w-full py-4 bg-brand-neon text-brand-dark font-display font-bold uppercase tracking-widest hover:shadow-[0_0_20px_#35FC03] transition-shadow">
+                    Transmitir Datos
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <img src="./img/C8_logoH_2.svg" alt="Circuito Ocho Logo Horizontal" width="200" height="150">
+                <!--<span class="font-display font-bold text-xl text-white">CIRCUITO<span class="text-brand-neon">OCHO</span></span>-->
+                <div class="flex flex-row items-center">
+                    <a href="https://www.linkedin.com/company/circuito-ocho/" target="_blank" rel="noopener noreferrer" class=" hover:text-brand-neon transition-colors duration-300 transform hover:scale-110  px-5 py-2 rounded-none tracking-widest" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ochocircuito" target="_blank" rel="noopener noreferrer" class=" hover:text-brand-neon transition-colors duration-300 transform hover:scale-110 px-5 py-2 rounded-none tracking-widest" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                </div>
+                <p class="text-gray-500 text-xs mt-2">© 2026 Todos los Sistemas Operativos.</p>
+                <p class="text-gray-500 text-xs mt-2">Website made with &hearts; by Ko2m0</p>
+                
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-brand-neon transition-colors text-sm">Protocolo de Privacidad</a>
+                <a href="#" class="text-gray-500 hover:text-brand-neon transition-colors text-sm">Términos de Servicio</a>
+            </div>
+        </div>
+    </footer>
+
+ <!-- Floating Action Buttons -->
+<div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-center">
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="w-14 h-14 bg-brand-dark border border-brand-neon rounded-full flex items-center justify-center text-brand-neon hover:bg-brand-neon hover:text-brand-dark transition-all duration-300 shadow-[0_0_15px_rgba(53,252,3,0.3)] hover:shadow-[0_0_25px_#35FC03] opacity-0 pointer-events-none" aria-label="Volver arriba">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- WhatsApp Button -->
+   <a href="https://wa.me/5211234567890" target="_blank" rel="noopener noreferrer" class="w-14 h-14 lg:w-20 lg:h-20 bg-[#25D366] rounded-full flex items-center justify-center text-white hover:bg-[#20BA5A] transition-all duration-300 shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_#25D366]" aria-label="Chat en WhatsApp">
+        <svg class="w-7 h-7 lg:w-10 lg:h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+</div>
+
+    <!-- Scripts -->
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
+                    
