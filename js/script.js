@@ -414,3 +414,139 @@ if (whatsappBtn) {
         console.log('WhatsApp chat initiated');
     });
 }
+
+ // Icon Animation Controller for Circuito Ocho
+    class IconAnimationController {
+      constructor() {
+        this.iconCards = document.querySelectorAll('.icon-card');
+        this.observerOptions = {
+          threshold: 0.2,
+          rootMargin: '0px'
+        };
+        this.init();
+      }
+
+      init() {
+        // Set up intersection observer for scroll animations
+        this.observer = new IntersectionObserver(
+          this.handleIntersection.bind(this),
+          this.observerOptions
+        );
+
+        // Observe all icon cards
+        this.iconCards.forEach(card => {
+          this.observer.observe(card);
+        });
+
+        // Add hover effects
+        this.addHoverEffects();
+
+        // Initialize continuous animations
+        this.initContinuousAnimations();
+      }
+
+      handleIntersection(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            this.triggerEntryAnimation(entry.target);
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }
+
+      triggerEntryAnimation(card) {
+        const svg = card.querySelector('svg');
+        const shapes = svg.querySelectorAll('.main-shape, .node, .connection, .gear, .layer, .arrow, .target, .bar');
+        
+        shapes.forEach((shape, index) => {
+          setTimeout(() => {
+            shape.style.opacity = '0';
+            shape.style.transform = 'scale(0.8)';
+            shape.style.transition = 'all 0.4s ease';
+            
+            setTimeout(() => {
+              shape.style.opacity = '1';
+              shape.style.transform = 'scale(1)';
+            }, 50);
+          }, index * 50);
+        });
+      }
+
+      addHoverEffects() {
+        this.iconCards.forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            const svg = card.querySelector('svg');
+            svg.style.filter = 'drop-shadow(0 0 15px rgba(53, 252, 3, 0.8))';
+          });
+
+          card.addEventListener('mouseleave', () => {
+            const svg = card.querySelector('svg');
+            svg.style.filter = 'drop-shadow(0 0 8px rgba(53, 252, 3, 0.6))';
+          });
+        });
+      }
+
+      initContinuousAnimations() {
+        // Add random pulse variations to nodes
+        const nodes = document.querySelectorAll('.node');
+        nodes.forEach(node => {
+          const randomDelay = Math.random() * 2;
+          node.style.animationDelay = `${randomDelay}s`;
+        });
+
+        // Add random bar heights for analytics
+        const bars = document.querySelectorAll('.bar');
+        bars.forEach(bar => {
+          const randomHeight = 15 + Math.random() * 15;
+          bar.style.height = `${randomHeight}px`;
+          bar.style.animationDuration = `${2 + Math.random()}s`;
+        });
+      }
+
+      // Method to trigger all icons animation (for demo purposes)
+      triggerAllAnimations() {
+        this.iconCards.forEach((card, index) => {
+          setTimeout(() => {
+            this.triggerEntryAnimation(card);
+          }, index * 200);
+        });
+      }
+    }
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      window.iconController = new IconAnimationController();
+      
+      // Add circuit decoration lines dynamically
+      this.addCircuitDecorations();
+    });
+
+    // Add dynamic circuit line decorations
+    function addCircuitDecorations() {
+      const container = document.querySelector('.container');
+      const colors = ['#35FC03'];
+      
+      for (let i = 0; i < 5; i++) {
+        const line = document.createElement('div');
+        line.className = 'circuit-line';
+        line.style.width = `${Math.random() * 200 + 50}px`;
+        line.style.height = '1px';
+        line.style.top = `${Math.random() * 100}vh`;
+        line.style.left = `${Math.random() * 100}%`;
+        line.style.opacity = Math.random() * 0.3;
+        container.appendChild(line);
+      }
+    }
+
+    // Optional: Add click interaction for demo
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.icon-card')) {
+        const card = e.target.closest('.icon-card');
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          card.style.transform = 'scale(1)';
+        }, 150);
+      }
+    });

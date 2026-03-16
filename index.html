@@ -248,27 +248,143 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Service Item -->
-                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                <div class="p-6 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300 icon-card icon-arquitectura">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" class="glow">
+                            <!-- Base structure -->
+                                <rect x="20" y="60" width="60" height="30" rx="2" class="main-shape"/>
+                                <rect x="30" y="40" width="40" height="20" rx="2" class="main-shape"/>
+                                <rect x="40" y="20" width="20" height="20" rx="2" class="main-shape"/>
+                            <!-- Connection lines -->
+                                <line x1="50" y1="40" x2="50" y2="60" class="main-shape"/>
+                                <line x1="30" y1="50" x2="20" y2="50" class="main-shape"/>
+                                <line x1="70" y1="50" x2="80" y2="50" class="main-shape"/>
+                            <!-- Nodes -->
+                                <circle cx="20" cy="50" r="3" class="main-shape"/>
+                                <circle cx="80" cy="50" r="3" class="main-shape"/>
+                                <circle cx="50" cy="10" r="4" class="main-shape"/>
+                        </svg>
+                    </div>
                     <h3 class="text-lg font-bold text-white mb-2">Arquitectura Estratégica</h3>
                     <p class="text-gray-400 text-sm">Diseño de planos para todo tu ecosistema digital.</p>
                 </div>
-                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                <div class="p-6 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300 icon-card icon-red-neural">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" class="glow">
+                                    <!-- Central node -->
+                                    <circle cx="50" cy="50" r="8" class="node"/>
+                                    <!-- Outer nodes -->
+                                    <circle cx="30" cy="30" r="5" class="node"/>
+                                    <circle cx="70" cy="30" r="5" class="node"/>
+                                    <circle cx="30" cy="70" r="5" class="node"/>
+                                    <circle cx="70" cy="70" r="5" class="node"/>
+                                    <!-- Connections -->
+                                    <line x1="50" y1="50" x2="30" y2="30" class="connection"/>
+                                    <line x1="50" y1="50" x2="70" y2="30" class="connection"/>
+                                    <line x1="50" y1="50" x2="30" y2="70" class="connection"/>
+                                    <line x1="50" y1="50" x2="70" y2="70" class="connection"/>
+                                    <line x1="30" y1="30" x2="70" y2="30" class="connection"/>
+                                    <line x1="30" y1="70" x2="70" y2="70" class="connection"/>
+                                    <!-- Data particles -->
+                                    <circle cx="40" cy="40" r="2" class="node"/>
+                                    <circle cx="60" cy="60" r="2" class="node"/>
+                        </svg>
+                    </div>
                     <h3 class="text-lg font-bold text-white mb-2">Red Neural de Contenido</h3>
                     <p class="text-gray-400 text-sm">Creación de contenido basada en datos que se adapta al engagement.</p>
                 </div>
-                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                <div class="p-6 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300 icon-card icon-automatizacion">
+                    <div class="icon-wrapper">
+                            <svg viewBox="0 0 100 100" class="glow">
+                                    <!-- Outer gear -->
+                                    <g class="gear">
+                                    <circle cx="50" cy="50" r="35" stroke-dasharray="8 4"/>
+                                    <circle cx="50" cy="50" r="30"/>
+                                    </g>
+                                    <!-- Inner gear -->
+                                    <g class="gear-inner">
+                                    <circle cx="50" cy="50" r="18" stroke-dasharray="6 3"/>
+                                    <circle cx="50" cy="50" r="12"/>
+                                    </g>
+                                    <!-- Center -->
+                                    <circle cx="50" cy="50" r="5"/>
+                                    <!-- Arrow indicators -->
+                                    <path d="M 50 20 L 55 25 L 50 30" class="gear"/>
+                                    <path d="M 80 50 L 75 55 L 70 50" class="gear"/>
+                                    <path d="M 50 80 L 45 75 L 50 70" class="gear"/>
+                                    <path d="M 20 50 L 25 45 L 30 50" class="gear"/>
+                            </svg>
+                    </div>
                     <h3 class="text-lg font-bold text-white mb-2">Automatización de Publicidad</h3>
                     <p class="text-gray-400 text-sm">Compra algorítmica de anuncios para maximizar ROAS.</p>
                 </div>
-                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                <div class="p-6 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300 icon-card icon-seo">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" class="glow">
+                                    <!-- Base layer -->
+                                    <rect x="15" y="65" width="70" height="20" rx="3" class="layer"/>
+                                    <!-- Middle layer -->
+                                    <rect x="20" y="45" width="60" height="20" rx="3" class="layer"/>
+                                    <!-- Top layer -->
+                                    <rect x="25" y="25" width="50" height="20" rx="3" class="layer"/>
+                                    <!-- Search icon on top -->
+                                    <circle cx="50" cy="35" r="6"/>
+                                    <line x1="54" y1="39" x2="58" y2="43"/>
+                                    <!-- Connection dots -->
+                                    <circle cx="50" cy="55" r="2"/>
+                                    <circle cx="50" cy="75" r="2"/>
+                                    <!-- Side indicators -->
+                                    <line x1="10" y1="35" x2="25" y2="35" stroke-dasharray="3 2"/>
+                                    <line x1="75" y1="55" x2="90" y2="55" stroke-dasharray="3 2"/>
+                        </svg>
+                    </div>
                     <h3 class="text-lg font-bold text-white mb-2">Infraestructura SEO</h3>
-                    <p class="text-gray-400 text-sm">SEO técnico para asegurar la descubribilidad del sistema.</p>
-                </div>
-                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                    <p class="text-gray-400 text-sm">SEO técnico para asegurar la visibilidad del sistema.</p>
+                    </div>
+                <div class="p-6 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300 icon-card icon-conversion">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 100 100" class="glow">
+                                    <!-- Target circles -->
+                                    <circle cx="50" cy="50" r="35" class="target"/>
+                                    <circle cx="50" cy="50" r="25" class="target"/>
+                                    <circle cx="50" cy="50" r="15" class="target"/>
+                                    <circle cx="50" cy="50" r="5"/>
+                                    <!-- Arrow hitting center -->
+                                    <path d="M 20 50 L 45 50" class="arrow"/>
+                                    <path d="M 45 50 L 40 45 M 45 50 L 40 55" class="arrow"/>
+                                    <!-- Growth indicator -->
+                                    <path d="M 70 70 L 70 50 L 85 50" class="arrow"/>
+                                    <path d="M 85 50 L 80 55 M 85 50 L 85 55" class="arrow"/>
+                            </svg>
+                    </div>
                     <h3 class="text-lg font-bold text-white mb-2">Optimización de Conversión</h3>
                     <p class="text-gray-400 text-sm">Pruebas A/B para maximizar el output del tráfico existente.</p>
                 </div>
-                <div class="p-6 border-l-2 border-white/10 hover:border-brand-neon bg-brand-dark/50 transition-all duration-300 reveal-element">
+                <div class="p-6 bg-gradient-to-br from-brand-neon/10 to-transparent border border-brand-neon/30 rounded-xl reveal-element hover:border-brand-neon transition-all duration-300 icon-card icon-analytics">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" class="glow">
+                                <!-- Dashboard frame -->
+                                <rect x="10" y="15" width="80" height="70" rx="4"/>
+                                <!-- Screen line -->
+                                <line x1="10" y1="35" x2="90" y2="35"/>
+                                <!-- Bar chart -->
+                                <rect x="20" y="55" width="8" height="20" class="bar"/>
+                                <rect x="32" y="48" width="8" height="27" class="bar"/>
+                                <rect x="44" y="52" width="8" height="23" class="bar"/>
+                                <rect x="56" y="45" width="8" height="30" class="bar"/>
+                                <rect x="68" y="50" width="8" height="25" class="bar"/>
+                                <!-- Line graph -->
+                                <polyline points="20,40 35,35 50,38 65,30 80,25" fill="none"/>
+                                <!-- Data points -->
+                                <circle cx="20" cy="40" r="2"/>
+                                <circle cx="35" cy="35" r="2"/>
+                                <circle cx="50" cy="38" r="2"/>
+                                <circle cx="65" cy="30" r="2"/>
+                                <circle cx="80" cy="25" r="2"/>
+                                <!-- Scan line -->
+                                <rect x="10" y="15" width="80" height="3" class="scan-line" opacity="0.5"/>
+                        </svg>
+                    </div>
                     <h3 class="text-lg font-bold text-white mb-2">Panel de Analíticas</h3>
                     <p class="text-gray-400 text-sm">Vista en vivo de la salud y rendimiento de tu sistema.</p>
                 </div>
