@@ -424,7 +424,7 @@ if (whatsappBtn) {
           rootMargin: '0px'
         };
         this.init();
-      }
+                    }
 
       init() {
         // Set up intersection observer for scroll animations
