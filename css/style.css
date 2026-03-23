@@ -9,6 +9,17 @@
 
 /* Smooth Scrolling for HTML is handled in HTML tag class */
 
+
+@font-face {
+    font-family: 'Sanspix';
+    src: url('../assets/fonts/Sanspix-Regular.woff2') format('woff2'), /* Modern Browsers */
+         url('../assets/fonts/Sanspix-Regular.woff') format('woff');   /* Fallback for older browsers */
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; /* Improves performance by showing fallback text until font loads */
+}
+
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
