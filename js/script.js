@@ -550,3 +550,61 @@ if (whatsappBtn) {
         }, 150);
       }
     });
+
+     // Modal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const openButtons = document.querySelectorAll('.open-modal-btn');
+            const closeButtons = document.querySelectorAll('.close-modal-btn');
+            const modals = document.querySelectorAll('.legal-modal');
+
+            function openModal(modalId) {
+                const targetModal = document.getElementById(modalId);
+                if (targetModal) {
+                    targetModal.classList.remove('hidden');
+                    targetModal.classList.add('flex');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            }
+
+            function closeModal(modal) {
+                if (modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = btn.getAttribute('data-target');
+                    openModal(targetId);
+                });
+            });
+
+            closeButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const modal = btn.closest('.legal-modal');
+                    closeModal(modal);
+                });
+            });
+
+            // Close on backdrop click
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal);
+                    }
+                });
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (!modal.classList.contains('hidden')) {
+                            closeModal(modal);
+                        }
+                    });
+                }
+            });
+        });
