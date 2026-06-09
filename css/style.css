@@ -1,4 +1,9 @@
- body {
+html, body {
+     overflow-x: clip;
+     overflow-x: hidden;
+}
+
+body {
                   background-color: white; /* Ensure the iframe has a white background */
                 }
 
@@ -105,10 +110,13 @@
 #mobile-menu.open {
     max-height: 400px;
     opacity: 1;
+    overflow: hidden;
+    max-width: initial;
 }
 
 /* Canvas Positioning */
 #bg-canvas {
+    max-width: 100vw;
     z-index: -1;
     pointer-events: none;
 }
